@@ -1094,6 +1094,19 @@
             object-fit: cover;
             display: block
         }
+    
+        /* ========== PHONE NAV + HERO FIX (<=768px) ========== */
+        @media (max-width: 768px) {
+            html { scroll-padding-top: 104px }
+            header.top { height: auto }
+            header.top .wrap { height: auto; flex-direction: column; gap: 6px; padding-top: 8px; padding-bottom: 8px }
+            .brand { display: none }
+            nav ul { flex-wrap: wrap; justify-content: center; overflow: visible; gap: 4px 6px }
+            nav a { font-size: .8rem; padding: 5px 10px }
+            .hero { flex-direction: column; justify-content: center; align-items: stretch; padding: 132px 0 56px }
+            .hero .sun { position: relative; top: auto; right: auto; transform: none; width: 110px; margin: 0 auto 26px; display: block }
+            .hero .content { width: calc(100% - 40px); margin: 0 auto }
+        }
     </style>
 </head>
 <body>
