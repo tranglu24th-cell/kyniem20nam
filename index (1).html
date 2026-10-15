@@ -1094,6 +1094,34 @@
             object-fit: cover;
             display: block
         }
+    
+        /* ========== PHONE POLISH (<=600px) ========== */
+        @media (max-width: 600px) {
+            section { padding: 64px 0 }
+            .wrap { padding: 0 18px }
+            header.top .wrap { height: 52px }
+            .brand { display: none }
+            nav a { font-size: .8rem; padding: 6px 9px }
+            h2 { font-size: clamp(1.9rem, 9vw, 2.4rem) }
+            .book { padding: 28px 20px; border-left-width: 6px; box-shadow: 0 8px 0 -2px #e6d7b8 }
+            .book h3 { padding-right: 44px }
+            .pen { width: 34px; right: 14px; top: 14px }
+            .book p:first-of-type::first-letter { font-size: 3rem }
+            .poem { font-size: 1.15rem; max-width: 100% }
+            .prose { font-size: 1.05rem; padding-left: 14px }
+            .letter { padding: 24px 20px; font-size: 1.05rem }
+            .envelope { height: 180px }
+            .groups { gap: 6px }
+            .chip { padding: 5px 11px; font-size: .8rem }
+            .album { gap: 16px 12px }
+            form.dream-form { padding: 20px }
+            .btn { padding: 12px 20px }
+            .timeline { padding-left: 28px }
+            .timeline .yr { font-size: 1.4rem }
+            footer p { font-size: 1.05rem }
+            .to-top { width: 42px; height: 42px; right: 12px; bottom: 14px }
+            input, textarea { font-size: 16px }
+        }
     </style>
 </head>
 <body>
