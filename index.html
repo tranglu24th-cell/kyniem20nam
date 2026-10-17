@@ -1088,24 +1088,154 @@
                 transform: none
             }
         }
+
         .photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             display: block
         }
-    
+
         /* ========== PHONE NAV + HERO FIX (<=768px) ========== */
         @media (max-width: 768px) {
-            html { scroll-padding-top: 104px }
-            header.top { height: auto }
-            header.top .wrap { height: auto; flex-direction: column; gap: 6px; padding-top: 8px; padding-bottom: 8px }
-            .brand { display: none }
-            nav ul { flex-wrap: wrap; justify-content: center; overflow: visible; gap: 4px 6px }
-            nav a { font-size: .8rem; padding: 5px 10px }
-            .hero { flex-direction: column; justify-content: center; align-items: stretch; padding: 132px 0 56px }
-            .hero .sun { position: relative; top: auto; right: auto; transform: none; width: 110px; margin: 0 auto 26px; display: block }
-            .hero .content { width: calc(100% - 40px); margin: 0 auto }
+            html {
+                scroll-padding-top: 104px
+            }
+
+            header.top {
+                height: auto
+            }
+
+                header.top .wrap {
+                    height: auto;
+                    flex-direction: column;
+                    gap: 6px;
+                    padding-top: 8px;
+                    padding-bottom: 8px
+                }
+
+            .brand {
+                display: none
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                overflow: visible;
+                gap: 4px 6px
+            }
+
+            nav a {
+                font-size: .8rem;
+                padding: 5px 10px
+            }
+
+            .hero {
+                flex-direction: column;
+                justify-content: center;
+                align-items: stretch;
+                padding: 132px 0 56px
+            }
+
+                .hero .sun {
+                    position: relative;
+                    top: auto;
+                    right: auto;
+                    transform: none;
+                    width: 110px;
+                    margin: 0 auto 26px;
+                    display: block
+                }
+
+                .hero .content {
+                    width: calc(100% - 40px);
+                    margin: 0 auto
+                }
+        }
+
+        /* lightbox photo */
+        dialog .big {
+            aspect-ratio: auto;
+            display: block;
+            background: #0b1528;
+            overflow: hidden
+        }
+
+        dialog #lbImg {
+            display: block;
+            width: 100%;
+            max-height: 68vh;
+            object-fit: contain
+        }
+
+        /* ========== PHONE HERO: logo centered on top, text centered ========== */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: center !important
+            }
+
+                .hero .sun {
+                    position: relative !important;
+                    top: auto !important;
+                    right: auto !important;
+                    left: auto !important;
+                    transform: none !important;
+                    display: block !important;
+                    width: 96px !important;
+                    margin: 0 auto 22px !important
+                }
+
+                .hero .content {
+                    width: calc(100% - 40px) !important;
+                    margin: 0 auto !important;
+                    text-align: center
+                }
+
+                .hero .sub, .hero blockquote {
+                    margin-left: auto;
+                    margin-right: auto
+                }
+
+                .hero .term {
+                    margin-left: auto;
+                    margin-right: auto
+                }
+        }
+
+        /* ========== PHONE HERO: center all hero text ========== */
+        @media (max-width: 768px) {
+            .hero .content,
+            .hero h1,
+            .hero h1 .fut,
+            .hero .kicker,
+            .hero .sub,
+            .hero blockquote,
+            .hero .term {
+                text-align: center !important
+            }
+
+            .hero h1 {
+                margin-left: auto !important;
+                margin-right: auto !important;
+                width: 100% !important
+            }
+
+                .hero h1 .fut {
+                    display: block !important;
+                    margin: 0 auto !important
+                }
+
+            .hero .btn {
+                margin-left: auto !important;
+                margin-right: auto !important
+            }
+
+            .hero .sub, .hero blockquote, .hero .term {
+                margin-left: auto !important;
+                margin-right: auto !important
+            }
         }
     </style>
 </head>
@@ -1138,8 +1268,8 @@
             <p class="kicker">Khoa Công nghệ thông tin</p>
 
             <h1>
-                <span>HÀNH TRÌNH</span>
-                <span>20 NĂM</span>
+                <span class="fut">HÀNH TRÌNH</span>
+                <span class="fut">20 NĂM</span>
                 <span class="fut">KIẾN TẠO TƯƠNG LAI</span>
             </h1>
 
@@ -1247,7 +1377,7 @@
         </div>
         <dialog id="lightbox" aria-labelledby="lbCap">
             <div class="inner">
-                <div class="big" aria-hidden="true"><svg width="90" height="90" viewBox="0 0 64 64"><path d="M6 34L58 12 40 56 30 40z" fill="#13233f" opacity=".7" /></svg></div>
+                <div class="big"><img id="lbImg" alt="" src=""></div>
                 <p id="lbCap"></p>
                 <button class="btn ghost close" id="lbClose">Đóng</button>
             </div>
@@ -1259,13 +1389,13 @@
         <div class="wrap reveal">
             <p class="kicker">HÀNH TRÌNH </p>
             <h2>20 năm DLA</h2>
-            <p class="lead">Mỗi mốc là một commit. Sự kiện sẽ được điền khi ban tổ chức cung cấp thông tin chính xác.</p>
+            <p class="lead">Mỗi năm dưới đây là một dấu chân của mái trường. Phía sau mỗi mốc là những thầy cô đã lặng lẽ dạy dỗ, những người bạn đã cùng nhau đi qua và những sinh viên đã lớn lên từng ngày. Chúng em biết ơn tất cả những gì đã góp phần tạo nên hành trình này.</p>
             <ol class="timeline">
-                <li class="start"><span class="yr">2007</span><p class="pending">Khởi đầu hành trình — chờ cập nhật sự kiện.</p></li>
-                <li><span class="yr">2011</span><p class="pending">Chờ cập nhật sự kiện.</p></li>
-                <li><span class="yr">2016</span><p class="pending">Chờ cập nhật sự kiện.</p></li>
-                <li><span class="yr">2021</span><p class="pending">Chờ cập nhật sự kiện.</p></li>
-                <li class="end"><span class="yr">2026</span><p class="pending">Tự hào 20 năm — hành trình tiếp tục.</p></li>
+                <li class="start"><span class="yr">2007</span><p class="pending">Những viên gạch đầu tiên, và những ước mơ còn rất nhỏ.</p></li>
+                <li><span class="yr">2011</span><p class="pending">Một chặng đường được bồi đắp bằng nỗ lực của biết bao thế hệ.</p></li>
+                <li><span class="yr">2016</span><p class="pending">Những bước chân ngày càng vững vàng hơn trên con đường học tập.</p></li>
+                <li><span class="yr">2021</span><p class="pending">Thích nghi cùng thời gian, và không bỏ lại ai phía sau.</p></li>
+                <li class="end"><span class="yr">2026</span><p class="pending">Hai mươi năm, và hành trình vẫn đang tiếp tục.</p></li>
             </ol>
         </div>
     </section>
@@ -1301,7 +1431,7 @@
     <footer>
         <div class="wrap">
             <p>DLA 20 năm — Cảm ơn những người đã cùng chúng em viết nên hành trình này.</p>
-            
+
         </div>
     </footer>
 
@@ -1310,170 +1440,173 @@
     </button>
     <div class="toast" id="toast" role="status"></div>
 
-    <script>(() => {
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const $ = (s) => document.querySelector(s);
-  const $$ = (s) => document.querySelectorAll(s);
-  const wait = (ms) => new Promise(r => setTimeout(r, ms));
+    <script>
+    (() => {
+            const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const $ = (s) => document.querySelector(s);
+            const $$ = (s) => document.querySelectorAll(s);
+            const wait = (ms) => new Promise(r => setTimeout(r, ms));
 
-  /* ---------- Terminal intro ---------- */
-  const termLines = [
-    '> Đang tải ký ức...',
-    '> Đang lưu giữ lòng biết ơn...',
-    '> Đang khởi tạo những ước mơ...',
-    '> 20 năm dấu ấn đã được ghi lại.',
-    '> Chuyển sang chương: Tương lai',
-    '> Hành trình vẫn tiếp diễn...'
-  ];
-  async function runTerminal() {
-    const term = $('#term');
-    for (const text of termLines) {
-      const line = document.createElement('span');
-      line.className = 'tl';
-      term.appendChild(line);
-      if (reduce) { line.textContent = text; }
-      else {
-        for (const ch of text) { line.textContent += ch; await wait(28); }
-      }
-      line.classList.add('done');
-      await wait(reduce ? 0 : 320);
-    }
-    const cur = document.createElement('span');
-    cur.className = 'cursor';
-    term.appendChild(cur);
-  }
-  runTerminal();
+            /* ---------- Terminal intro ---------- */
+            const termLines = [
+                '> Đang tải ký ức...',
+                '> Đang lưu giữ lòng biết ơn...',
+                '> Đang khởi tạo những ước mơ...',
+                '> 20 năm dấu ấn đã được ghi lại.',
+                '> Chuyển sang chương: Tương lai',
+                '> Hành trình vẫn tiếp diễn...'
+            ];
+            async function runTerminal() {
+                const term = $('#term');
+                for (const text of termLines) {
+                    const line = document.createElement('span');
+                    line.className = 'tl';
+                    term.appendChild(line);
+                    if (reduce) { line.textContent = text; }
+                    else {
+                        for (const ch of text) { line.textContent += ch; await wait(28); }
+                    }
+                    line.classList.add('done');
+                    await wait(reduce ? 0 : 320);
+                }
+                const cur = document.createElement('span');
+                cur.className = 'cursor';
+                term.appendChild(cur);
+            }
+            runTerminal();
 
-  /* ---------- Reveal on scroll ---------- */
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  $$('.reveal').forEach(el => io.observe(el));
+            /* ---------- Reveal on scroll ---------- */
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+                });
+            }, { threshold: 0.12 });
+            $$('.reveal').forEach(el => io.observe(el));
 
-  /* Poem lines appear one by one */
-  const poemIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      e.target.querySelectorAll('.line').forEach((l, i) => {
-        setTimeout(() => l.classList.add('in'), reduce ? 0 : i * 180);
-      });
-      poemIO.unobserve(e.target);
-    });
-  }, { threshold: 0.3 });
-  poemIO.observe($('#poem'));
+            /* Poem lines appear one by one */
+            const poemIO = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (!e.isIntersecting) return;
+                    e.target.querySelectorAll('.line').forEach((l, i) => {
+                        setTimeout(() => l.classList.add('in'), reduce ? 0 : i * 180);
+                    });
+                    poemIO.unobserve(e.target);
+                });
+            }, { threshold: 0.3 });
+            poemIO.observe($('#poem'));
 
-  /* ---------- Active nav link ---------- */
-  const navLinks = $$('nav a.nav');
-  const secIO = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  ['top','stories','poetry','teacher','memories','dreams'].forEach(id => secIO.observe(document.getElementById(id)));
+            /* ---------- Active nav link ---------- */
+            const navLinks = $$('nav a.nav');
+            const secIO = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (!e.isIntersecting) return;
+                    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+                });
+            }, { rootMargin: '-45% 0px -50% 0px' });
+            ['top', 'stories', 'poetry', 'teacher', 'memories', 'dreams'].forEach(id => secIO.observe(document.getElementById(id)));
 
-  /* ---------- Story: expand ---------- */
-  const book = $('#book'), moreBtn = $('#moreBtn');
-  moreBtn.addEventListener('click', () => {
-    const open = book.classList.toggle('open');
-    moreBtn.textContent = open ? 'Thu gọn' : 'Đọc tiếp';
-    moreBtn.setAttribute('aria-expanded', String(open));
-  });
+            /* ---------- Story: expand ---------- */
+            const book = $('#book'), moreBtn = $('#moreBtn');
+            moreBtn.addEventListener('click', () => {
+                const open = book.classList.toggle('open');
+                moreBtn.textContent = open ? 'Thu gọn' : 'Đọc tiếp';
+                moreBtn.setAttribute('aria-expanded', String(open));
+            });
 
-  /* ---------- Letter envelope ---------- */
-  const env = $('#envelope'), letter = $('#letter');
-  env.addEventListener('click', () => {
-    const open = env.classList.toggle('open');
-    letter.classList.toggle('open', open);
-    env.setAttribute('aria-expanded', String(open));
-    env.querySelector('.label').textContent = open ? 'Thư đã mở' : 'Chạm để mở thư';
-  });
+            /* ---------- Letter envelope ---------- */
+            const env = $('#envelope'), letter = $('#letter');
+            env.addEventListener('click', () => {
+                const open = env.classList.toggle('open');
+                letter.classList.toggle('open', open);
+                env.setAttribute('aria-expanded', String(open));
+                env.querySelector('.label').textContent = open ? 'Thư đã mở' : 'Chạm để mở thư';
+            });
 
-  /* ---------- Memories: filter + lightbox ---------- */
-  $$('.chip').forEach(chip => chip.addEventListener('click', () => {
-    const g = chip.dataset.g;
-    $$('.chip').forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
-    $$('.polaroid').forEach(p => { p.hidden = g !== 'all' && p.dataset.g !== g; });
-  }));
-  const lb = $('#lightbox');
-  $$('.polaroid').forEach(p => p.addEventListener('click', () => {
-    $('#lbCap').textContent = p.dataset.caption;
-    lb.showModal();
-  }));
-  $('#lbClose').addEventListener('click', () => lb.close());
-  lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+            /* ---------- Memories: filter + lightbox ---------- */
+            $$('.chip').forEach(chip => chip.addEventListener('click', () => {
+                const g = chip.dataset.g;
+                $$('.chip').forEach(c => c.setAttribute('aria-pressed', String(c === chip)));
+                $$('.polaroid').forEach(p => { p.hidden = g !== 'all' && p.dataset.g !== g; });
+            }));
+            const lb = $('#lightbox');
+            $$('.polaroid').forEach(p => p.addEventListener('click', () => {
+                $('#lbCap').textContent = p.dataset.caption;
+                const pic = p.querySelector('img');
+                if (pic) { $('#lbImg').src = pic.getAttribute('src'); $('#lbImg').alt = pic.getAttribute('alt') || ''; }
+                lb.showModal();
+            }));
+            $('#lbClose').addEventListener('click', () => lb.close());
+            lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
 
-  /* ---------- Dreams ---------- */
-  const KEY = 'dla20-dreams-v1';
-  const wall = $('#wall'), empty = $('#empty'), form = $('#dreamForm');
-  const nameI = $('#dName'), textI = $('#dText'), err = $('#err'), count = $('#count');
-  let dreams = [];
-  try { dreams = JSON.parse(localStorage.getItem(KEY)) || []; } catch (_) { dreams = []; }
-  if (!Array.isArray(dreams)) dreams = [];
+            /* ---------- Dreams ---------- */
+            const KEY = 'dla20-dreams-v1';
+            const wall = $('#wall'), empty = $('#empty'), form = $('#dreamForm');
+            const nameI = $('#dName'), textI = $('#dText'), err = $('#err'), count = $('#count');
+            let dreams = [];
+            try { dreams = JSON.parse(localStorage.getItem(KEY)) || []; } catch (_) { dreams = []; }
+            if (!Array.isArray(dreams)) dreams = [];
 
-  function save() {
-    try { localStorage.setItem(KEY, JSON.stringify(dreams)); }
-    catch (_) { toast('Trình duyệt đang chặn lưu. Ước mơ chỉ hiển thị tạm thời.'); }
-  }
-  function render() {
-    wall.textContent = '';
-    empty.hidden = dreams.length > 0;
-    dreams.forEach(d => {
-      const card = document.createElement('article');
-      card.className = 'dream';
-      const meta = document.createElement('div');
-      meta.className = 'meta';
-      const hash = document.createElement('span');
-      hash.textContent = 'commit ' + String(d.id).slice(-7);
-      const date = document.createElement('span');
-      date.textContent = new Date(d.date).toLocaleDateString('vi-VN');
-      meta.append(hash, date);
-      const who = document.createElement('p');
-      who.className = 'who';
-      who.textContent = d.name;
-      const txt = document.createElement('p');
-      txt.className = 'txt';
-      txt.textContent = d.text;
-      card.append(meta, who, txt);
-      wall.appendChild(card);
-    });
-  }
-  textI.addEventListener('input', () => { count.textContent = textI.value.length + ' / 160'; });
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = nameI.value.trim(), text = textI.value.trim();
-    if (name.length < 2) { err.textContent = 'Biệt danh cần ít nhất 2 ký tự.'; nameI.focus(); return; }
-    if (text.length < 5) { err.textContent = 'Ước mơ cần ít nhất 5 ký tự để thẻ có nội dung.'; textI.focus(); return; }
-    err.textContent = '';
-    dreams.unshift({ id: Date.now(), name, text, date: new Date().toISOString() });
-    save(); render();
-    form.reset(); count.textContent = '0 / 160';
-    toast('Đã ghi dấu ước mơ của bạn.');
-    $('#wall').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
-  });
-  $('#resetBtn').addEventListener('click', () => {
-    form.reset(); err.textContent = ''; count.textContent = '0 / 160';
-    nameI.focus();
-  });
-  $('#clearAll').addEventListener('click', () => {
-    if (!dreams.length) { toast('Chưa có ước mơ nào để xóa.'); return; }
-    if (!confirm('Xóa toàn bộ ước mơ đã ghi trên thiết bị này?')) return;
-    dreams = []; save(); render(); toast('Đã xóa toàn bộ ước mơ trên thiết bị này.');
-  });
-  render();
+            function save() {
+                try { localStorage.setItem(KEY, JSON.stringify(dreams)); }
+                catch (_) { toast('Trình duyệt đang chặn lưu. Ước mơ chỉ hiển thị tạm thời.'); }
+            }
+            function render() {
+                wall.textContent = '';
+                empty.hidden = dreams.length > 0;
+                dreams.forEach(d => {
+                    const card = document.createElement('article');
+                    card.className = 'dream';
+                    const meta = document.createElement('div');
+                    meta.className = 'meta';
+                    const hash = document.createElement('span');
+                    hash.textContent = 'commit ' + String(d.id).slice(-7);
+                    const date = document.createElement('span');
+                    date.textContent = new Date(d.date).toLocaleDateString('vi-VN');
+                    meta.append(hash, date);
+                    const who = document.createElement('p');
+                    who.className = 'who';
+                    who.textContent = d.name;
+                    const txt = document.createElement('p');
+                    txt.className = 'txt';
+                    txt.textContent = d.text;
+                    card.append(meta, who, txt);
+                    wall.appendChild(card);
+                });
+            }
+            textI.addEventListener('input', () => { count.textContent = textI.value.length + ' / 160'; });
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = nameI.value.trim(), text = textI.value.trim();
+                if (name.length < 2) { err.textContent = 'Biệt danh cần ít nhất 2 ký tự.'; nameI.focus(); return; }
+                if (text.length < 5) { err.textContent = 'Ước mơ cần ít nhất 5 ký tự để thẻ có nội dung.'; textI.focus(); return; }
+                err.textContent = '';
+                dreams.unshift({ id: Date.now(), name, text, date: new Date().toISOString() });
+                save(); render();
+                form.reset(); count.textContent = '0 / 160';
+                toast('Đã ghi dấu ước mơ của bạn.');
+                $('#wall').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+            });
+            $('#resetBtn').addEventListener('click', () => {
+                form.reset(); err.textContent = ''; count.textContent = '0 / 160';
+                nameI.focus();
+            });
+            $('#clearAll').addEventListener('click', () => {
+                if (!dreams.length) { toast('Chưa có ước mơ nào để xóa.'); return; }
+                if (!confirm('Xóa toàn bộ ước mơ đã ghi trên thiết bị này?')) return;
+                dreams = []; save(); render(); toast('Đã xóa toàn bộ ước mơ trên thiết bị này.');
+            });
+            render();
 
-  /* ---------- Toast + back to top ---------- */
-  let tt;
-  function toast(msg) {
-    const t = $('#toast');
-    t.textContent = msg; t.classList.add('show');
-    clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2800);
-  }
-  const top = $('#toTop');
-  window.addEventListener('scroll', () => top.classList.toggle('show', window.scrollY > 600), { passive: true });
-  top.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
-})();</script>
+            /* ---------- Toast + back to top ---------- */
+            let tt;
+            function toast(msg) {
+                const t = $('#toast');
+                t.textContent = msg; t.classList.add('show');
+                clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2800);
+            }
+            const top = $('#toTop');
+            window.addEventListener('scroll', () => top.classList.toggle('show', window.scrollY > 600), { passive: true });
+            top.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }));
+        })();</script>
 </body>
 </html>
